@@ -2,16 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+                                //тег       имя класса             текст
+// const elem = React.createElement('h2', {className: 'greetings'}, 'Hello World!'); // JS
+
+const text = 'Hello World'
+
+const elem = (
+  // Должен иметь хотя бы одного родителя
+  // class и for зарезервированы системой.
+  // Необходимо использовать className и htmlFor соответственно
+  // в {} можно помещать все, кроме объектов
+  <div> 
+    <h2 className='text'>{text}</h2> 
+    <input type="text" />
+    <label htmlFor=''></label>
+    <button tabIndex={0}>Click</button>
+  </div>
+); // JSX
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  elem
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
