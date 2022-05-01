@@ -1,24 +1,40 @@
-import AppInfo from '../app-info/app-info';
-import SearchPanel from '../search-panel/search-panel';
-import AppFilter from '../app-filter/app-filter';
-import EmployeersList from '../employeers-list/employeers-list';
-import EmployeersAddForm from '../employeers-add-form/employeers-add-form';
+// import AppInfo from '../app-info/app-info';
+// import SearchPanel from '../search-panel/search-panel';
+// import AppFilter from '../app-filter/app-filter';
+// import EmployeersList from '../employeers-list/employeers-list';
+// import EmployeersAddForm from '../employeers-add-form/employeers-add-form';
 
 import './app.css';
+
+// Props (свойства)
+// function WhoAmI(props) {
+//     return (
+//         <div>
+//             <h1>My name is {props.name}, surmane - {props.surname}</h1>
+//             <a href={props.link}>My profile</a>
+//         </div>
+//     )
+// }
+
+// Оптимизированый способ назначения Пропсов
+function WhoAmI({name, surname, link}) {
+    return (
+        <div>
+            <h1>My name is {name()}, surmane - {surname.firstSurname}</h1>
+            <a href={link}>My profile</a>
+        </div>
+    )
+}
 
 function App() {
     return (
         <div className="app">
-            <AppInfo/>
-
-            <div className="search-panel">
-                <SearchPanel/>
-                <AppFilter/>
-            </div>
-
-            <EmployeersList/>
-            <EmployeersAddForm/>
-            
+            <WhoAmI name={() => {return 'John'}}
+                    surname={{firstSurname: 'Smith'}}
+                    link="https://yandex.ru/"/>            
+            <WhoAmI name={() => {return 'Alex'}}
+                    surname={{firstSurname: 'Ivanov'}}
+                    link="https://yandex.ru/maps/"/>            
         </div>
     );
 }
