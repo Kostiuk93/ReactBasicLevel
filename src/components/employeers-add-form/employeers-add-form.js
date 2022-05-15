@@ -27,7 +27,7 @@ class EmployeersAddForm extends Component {
     }
 
     render () {
-        const {name, salary,} = this.state
+        const {name, salary} = this.state
         return (
             <div className="app-add-form">
                 <h3>Добавьте нового сотрудника</h3>
